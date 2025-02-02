@@ -10,7 +10,7 @@ def create(engine):
 
 class BingeType(Base):
     __tablename__ = "binge_type"
-    id_binge_type = Column(Integer)
+    id_binge_type = Column(Integer, primary_key=True)
     binge_type_code = Column(String)
     name = Column(String)
 
@@ -19,8 +19,8 @@ class BingeType(Base):
 
 
 class Binge(Base):
-    __tablename__ = "binge_type"
-    id_binge_type = Column(Integer)
+    __tablename__ = "binge"
+    id_binge = Column(Integer, primary_key=True)
     id_binge_type = Column(Integer)
     name = Column(String)
     binge_code = Column(String)
