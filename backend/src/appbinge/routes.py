@@ -10,7 +10,7 @@ def fn():
 
 @router.get("/create-tables")
 def create_tables():
-    from src.libbinge.models import tables
-    from src.appbinge import engine
+    from libbinge.models import tables
+    from appbinge import engine
 
     tables.create(engine=engine)
