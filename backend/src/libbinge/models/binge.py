@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
+from enum import Enum
 
 
 # --- Binge Type Models ---
@@ -18,6 +19,11 @@ class AddBingeTypeResponse(BaseModel):
 
 
 # --- Binge Models ---
+class BingeStatus(str, Enum):
+    PENDING = "pending"
+    IN_PROGRESS = "in-progress"
+    EXPIRED = "expired"
+
 class BingeBase(BaseModel):
     id_binge_type: int
     name: str
@@ -25,7 +31,7 @@ class BingeBase(BaseModel):
     id_parent_binge: Optional[int] = None
     start_time: datetime
     end_time: datetime
-    status: str
+    status: BingeStatus
 
 class BingeResponse(BingeBase):
     id_binge: int
